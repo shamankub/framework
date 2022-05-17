@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Аудиторская компания «ТРЕНД» - тарифы</title>
+    <title>Аудиторская компания «ТРЕНД» - регистрация</title>
     <style type="text/css">
         html {
             height: 100%;
@@ -328,6 +328,16 @@
             color: #47433F;
         }
 
+        input[type="radio" i] {
+            padding: 5px;
+            width: 20px;
+            font: 100% arial;
+            border: 1px solid #E5E5DB;
+            background: #FFF;
+            color: #47433F;
+        }
+
+
         .form_settings .submit {
             font: 100% arial;
             border: 1px solid;
@@ -401,9 +411,9 @@
                     <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
                     <li><a href="/">Главная</a></li>
                     <li><a href="/about/">О компании</a></li>
-                    <li class="selected"><a href="/price/">Тарифы</a></li>
+                    <li><a href="/price/">Тарифы</a></li>
                     <li><a href="/contacts/">Контакты</a></li>
-                    <li><a href="/register/">Регистрация</a></li>
+                    <li class="selected"><a href="/register/">Регистрация</a></li>
                 </ul>
             </div>
         </div>
@@ -411,8 +421,23 @@
         <div id="site_content">
             <div id="content">
                 <!-- insert the page content here -->
-                <h2>Тарифы</h2>
-                <p>Данный раздел находится в разработке.</p>
+                <h2>Регистрация</h2>
+                <form action="#" method="post">
+                    <div class="form_settings">
+                        <p><span>Ваше имя:</span><input type="text" name="name" value="" /></p>
+                        <p><span>Ваш email:</span><input type="text" name="email" value="" /></p>
+                        <span class="title">Являетесь клиентом?</span>
+                        <label><input type="radio" name="client" value="yes" /> Да</label>
+                        <label><input type="radio" name="client" value="no" /> Нет</label>
+                        <p><span>Ваш город:</span><select id="id" name="location">
+                                <option value="msk">Москва</option>
+                                <option value="spb">Санкт-Петербург</option>
+                                <option value="krd">Краснодар</option>
+                            </select></p>
+                        <p style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit"
+                                value="Регистрация" /></p>
+                    </div>
+                </form>
             </div>
         </div>
         <div id="content_footer"></div>
