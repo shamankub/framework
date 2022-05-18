@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    {% block style %}{% endblock %}
+</head>
+
+<body>
+    <div id="main">
+        <div id="header">
+            <div id="logo">
+                <div id="logo_text">
+                    <!-- class="logo_colour", allows you to change the colour of the text -->
+                    <h1><a href="/">Аудиторская компания<span class="logo_colour">«ТРЕНД»</span></a></h1>
+                    <h2>Нас рекомендуют друзьям.</h2>
+                </div>
+            </div>
+            {% block menu %}{% endblock %}
+        </div>
+        <div id="content_header"></div>
+        <div id="site_content">
+            <div id="content">
+                <!-- insert the page content here -->
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+        <div id="content_footer"></div>
+        <div id="footer">
+            Copyright &copy; Anton Eseneev, 2022
+        </div>
+    </div>
+</body>
+
+</html>
