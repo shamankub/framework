@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}
+Аудиторская компания «ТРЕНД» - создание тарифа
+{% endblock %}
+{% block style %}
+{% include "includes/inc_style.html" %}
+{% endblock %}
+{% block menu %}
+{% include "includes/inc_menu.html" %}
+{% endblock %}
+{% block content %}
+<div>
+    <a href="/tariffs-list/?id={{id}}">назад</a>
+</div>
+
+<br>
+<br>
+
+<div>
+    <h2>Создание тарифа для категории "{{name}}"</h2>
+    <form method="post">
+        <div class="form_settings_cat">
+            <input type="text" name="name" placeholder="Название тарифа">
+            <input class="submit" type="submit" value="Сохранить" />
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}
+Аудиторская компания «ТРЕНД» - создание тарифа
+{% endblock %}
+{% block style %}
+{% include "includes/inc_style.html" %}
+{% endblock %}
+{% block menu %}
+{% include "includes/inc_menu.html" %}
+{% endblock %}
+{% block content %}
+<h2>Создание категории</h2>
+<form method="post">
+    <div class="form_settings_cat">
+        <input type="text" name="name" placeholder="Название категории">
+        <input class="submit" type="submit" value="Сохранить" />
+    </div>
+</form>
+{% endblock %}

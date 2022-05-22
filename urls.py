@@ -1,6 +1,17 @@
 from datetime import date
 
-from views import About, Contacts, Index, Price, Register
+from views import (
+    About,
+    CategoryList,
+    Contacts,
+    CopyTariff,
+    CreateCategory,
+    CreateTariff,
+    Index,
+    Price,
+    Register,
+    TariffsList,
+)
 
 
 # front controller
@@ -20,4 +31,9 @@ routes = {
     "/price/": Price(),
     "/contacts/": Contacts(),
     "/register/": Register(),
+    "/tariffs-list/": TariffsList(),
+    "/create-tariff/": CreateTariff(),
+    "/create-category/": CreateCategory(),
+    "/category-list/": CategoryList(),
+    "/copy-tariff/": CopyTariff(),
 }
