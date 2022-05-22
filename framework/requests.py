@@ -33,6 +33,7 @@ class PostRequests:
                 # делим ключ и значение через =
                 k, v = item.split("=")
                 result[k] = v
+
         return result
 
     @staticmethod

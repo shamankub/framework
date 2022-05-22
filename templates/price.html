@@ -9,5 +9,28 @@
 {% include "includes/inc_menu.html" %}
 {% endblock %}
 {% block content %}
-{% include "includes/inc_price_content.html" %}
+<div>
+    <a href="/create-category/">Создать новую категорию</a>
+</div>
+<div>
+    <h2>Список существующих категорий</h2>
+    <table style="width:100%; border-spacing:0;">
+        <tr>
+            <th>Название категории</th>
+            <th>Количество тарифов</th>
+            <th></th>
+        </tr>
+        {% for item in objects_list %}
+        <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.tariff_count()}}</td>
+            <td>
+                <li>
+                    <a href="/tariffs-list/?id={{item.id}}">Показать тарифы</a>
+                </li>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
 {% endblock %}

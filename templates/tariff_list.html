@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}
+Аудиторская компания «ТРЕНД» - список тарифов
+{% endblock %}
+{% block style %}
+{% include "includes/inc_style.html" %}
+{% endblock %}
+{% block menu %}
+{% include "includes/inc_menu.html" %}
+{% endblock %}
+{% block content %}
+<div>
+    <a href="/price/">назад</a>
+</div>
+
+<br>
+<br>
+
+<div>
+    <a href="/create-tariff/?id={{id}}">Создать новый тариф</a>
+    <br>
+    <h2>Список тарифов для категории "{{name}}"</h2>
+    {% for item in objects_list %}
+    <li>
+        {{item.name}} <span><a href="/copy-tariff/?name={{item.name}}">скопировать</a></span>
+    </li>
+    {% endfor %}
+</div>
+{% endblock %}
