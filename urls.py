@@ -1,17 +1,17 @@
 from datetime import date
 
-from views import (
-    About,
-    CategoryList,
-    Contacts,
-    CopyTariff,
-    CreateCategory,
-    CreateTariff,
-    Index,
-    Price,
-    Register,
-    TariffsList,
-)
+# from views import (
+#     About,
+#     CategoryList,
+#     Contacts,
+#     CopyTariff,
+#     CreateCategory,
+#     CreateTariff,
+#     Index,
+#     Price,
+#     Register,
+#     TariffsList,
+# )
 
 
 # front controller
@@ -25,15 +25,15 @@ def other_front(request):
 
 fronts = [secret_front, other_front]
 
-routes = {
-    "/": Index(),
-    "/about/": About(),
-    "/price/": Price(),
-    "/contacts/": Contacts(),
-    "/register/": Register(),
-    "/tariffs-list/": TariffsList(),
-    "/create-tariff/": CreateTariff(),
-    "/create-category/": CreateCategory(),
-    "/category-list/": CategoryList(),
-    "/copy-tariff/": CopyTariff(),
-}
+# routes = {
+#     "/": Index(),
+#     "/about/": About(),
+#     "/price/": Price(),
+#     "/contacts/": Contacts(),
+#     "/register/": Register(),
+#     "/tariffs-list/": TariffsList(),
+#     "/create-tariff/": CreateTariff(),
+#     "/create-category/": CreateCategory(),
+#     "/category-list/": CategoryList(),
+#     "/copy-tariff/": CopyTariff(),
+# }

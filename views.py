@@ -1,49 +1,64 @@
 from datetime import date
 
 from framework.templator import render
+from patterns.structural_patterns import AppRoute, Debug
 from patterns.сreational_patterns import Engine, Logger
 
 site = Engine()
 logger = Logger("main")
 
+routes = {}
+
 
 # контроллер - главная страница
+@AppRoute(routes=routes, url="/")
 class Index:
+    @Debug(name="Index")
     def __call__(self, request):
         return "200 OK", render("index.html")
 
 
 # контроллер "О компании"
+@AppRoute(routes=routes, url="/about/")
 class About:
+    @Debug(name="About")
     def __call__(self, request):
         return "200 OK", render("about.html")
 
 
 # контроллер "Тарифы"
+@AppRoute(routes=routes, url="/price/")
 class Price:
+    @Debug(name="Price")
     def __call__(self, request):
         return "200 OK", render("price.html", objects_list=site.categories)
 
 
 # контроллер "Контакты"
+@AppRoute(routes=routes, url="/contacts/")
 class Contacts:
+    @Debug(name="Contacts")
     def __call__(self, request):
         return "200 OK", render("contacts.html")
 
 
 # контроллер "Регистрация"
+@AppRoute(routes=routes, url="/register/")
 class Register:
+    @Debug(name="Register")
     def __call__(self, request):
         return "200 OK", render("register.html")
 
 
 # контроллер 404
 class NotFound404:
+    @Debug(name="NotFound404")
     def __call__(self, request):
         return "404 WHAT", "404 PAGE Not Found"
 
 
 # контроллер - список тарифов
+@AppRoute(routes=routes, url="/tariffs-list/")
 class TariffsList:
     def __call__(self, request):
         logger.log("Список тарифов")
@@ -60,6 +75,7 @@ class TariffsList:
 
 
 # контроллер - создать тариф
+@AppRoute(routes=routes, url="/create-tariff/")
 class CreateTariff:
     category_id = -1
 
@@ -98,6 +114,7 @@ class CreateTariff:
 
 
 # контроллер - создать категорию
+@AppRoute(routes=routes, url="/create-category/")
 class CreateCategory:
     def __call__(self, request):
 
@@ -126,6 +143,7 @@ class CreateCategory:
 
 
 # контроллер - список категорий
+@AppRoute(routes=routes, url="/category-list/")
 class CategoryList:
     def __call__(self, request):
         logger.log("Список категорий")
@@ -133,6 +151,7 @@ class CategoryList:
 
 
 # контроллер - копировать тариф
+@AppRoute(routes=routes, url="/copy-tariff/")
 class CopyTariff:
     def __call__(self, request):
         request_params = request["request_params"]
