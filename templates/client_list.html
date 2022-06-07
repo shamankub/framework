@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}
+Аудиторская компания «ТРЕНД» - создание клиента
+{% endblock %}
+{% block style %}
+{% include "includes/inc_style.html" %}
+{% endblock %}
+{% block menu %}
+{% include "includes/inc_menu.html" %}
+{% endblock %}
+{% block content %}
+<div>
+    <li>
+        <a href="/create-client/">Создать клиента</a>
+    </li>
+    <li>
+        <a href="/add-client/">Добавить клиента в тариф</a>
+    </li>
+</div>
+<h2>Список клиентов</h2>
+<table style="width:100%; border-spacing:0;">
+    <tr>
+        <th>Клиент</th>
+        <th>Тариф</th>
+    </tr>
+    {% for item in objects_list %}
+    <tr>
+        <td>{{item.name}}</td>
+        <td>{% for tariff in item.tariffs %}
+            {{tariff.name}}
+            {% endfor %}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

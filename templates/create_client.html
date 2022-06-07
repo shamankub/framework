@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}
+Аудиторская компания «ТРЕНД» - создание клиента
+{% endblock %}
+{% block style %}
+{% include "includes/inc_style.html" %}
+{% endblock %}
+{% block menu %}
+{% include "includes/inc_menu.html" %}
+{% endblock %}
+{% block content %}
+<div>
+    <li>
+        <a href="/client-list/">Список клиентов</a>
+    </li>
+</div>
+<div>
+    <h2>Создание клиента</h2>
+    <form method="post">
+        <div class="form_settings_cat">
+            <input type="text" name="name" placeholder="Имя">
+            <input class="submit" type="submit" value="Сохранить" />
+        </div>
+    </form>
+</div>
+{% endblock %}

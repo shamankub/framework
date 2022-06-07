@@ -1,11 +1,20 @@
 from datetime import date
 
 from framework.templator import render
+from patterns.behavioral_patterns import (
+    BaseSerializer,
+    CreateView,
+    EmailNotifier,
+    ListView,
+    SmsNotifier,
+)
 from patterns.structural_patterns import AppRoute, Debug
-from patterns.сreational_patterns import Engine, Logger
+from patterns.creational_patterns import Engine, Logger
 
 site = Engine()
 logger = Logger("main")
+email_notifier = EmailNotifier()
+sms_notifier = SmsNotifier()
 
 routes = {}
 
@@ -173,3 +182,47 @@ class CopyTariff:
             )
         except KeyError:
             return "200 OK", "No tariffs have been added yet"
+
+
+@AppRoute(routes=routes, url="/client-list/")
+class ClientListView(ListView):
+    queryset = site.clients
+    template_name = "client_list.html"
+
+
+@AppRoute(routes=routes, url="/create-client/")
+class ClientCreateView(CreateView):
+    template_name = "create_client.html"
+
+    def create_obj(self, data: dict):
+        name = data["name"]
+        name = site.decode_value(name)
+        new_obj = site.create_user("client", name)
+        site.clients.append(new_obj)
+
+
+@AppRoute(routes=routes, url="/add-client/")
+class AddClientByTariffCreateView(CreateView):
+    template_name = "add_client.html"
+
+    def get_context_data(self):
+        context = super().get_context_data()
+        context["tariffs"] = site.tariffs
+        context["clients"] = site.clients
+        return context
+
+    def create_obj(self, data: dict):
+        tariff_name = data["tariff_name"]
+        tariff_name = site.decode_value(tariff_name)
+        tariff = site.get_tariff(tariff_name)
+        client_name = data["client_name"]
+        client_name = site.decode_value(client_name)
+        client = site.get_client(client_name)
+        tariff.add_client(client)
+
+
+@AppRoute(routes=routes, url="/api/")
+class TariffApi:
+    @Debug(name="TariffApi")
+    def __call__(self, request):
+        return "200 OK", BaseSerializer(site.tariffs).save()
