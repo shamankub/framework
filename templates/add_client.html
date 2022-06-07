@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}
+Аудиторская компания «ТРЕНД» - создание тарифа
+{% endblock %}
+{% block style %}
+{% include "includes/inc_style.html" %}
+{% endblock %}
+{% block menu %}
+{% include "includes/inc_menu.html" %}
+{% endblock %}
+{% block content %}
+<div>
+    <li>
+        <a href="/client-list/">Список клиентов</a>
+    </li>
+    <li>
+        <a href="/create-client/">Создать клиента</a>
+    </li>
+</div>
+<h2>Добавление клиента в тариф</h2>
+<form method="post">
+    <div class="list_box">
+        <select size="3" name="tariff_name">
+            {% for item in tariffs %}
+            <option value="{{item.name}}">{{item.name}}</option>
+            {% endfor %}
+        </select>
+        <select size="3" name="client_name">
+            {% for item in clients %}
+            <option value="{{item.name}}">{{item.name}}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+        <input class="submit" type="submit" value="Записать" />
+    </div>
+</form>
+{% endblock %}

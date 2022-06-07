@@ -1,0 +1,56 @@
+[
+    {
+        "py/object": "patterns.creational_patterns.StandartTariff",
+        "name": "tariff_1",
+        "category": {
+            "py/object": "patterns.creational_patterns.Category",
+            "id": 0,
+            "name": "category_1",
+            "category": null,
+            "tariffs": [
+                {
+                    "py/id": 1
+                }
+            ]
+        },
+        "clients": [
+            {
+                "py/object": "patterns.creational_patterns.Client",
+                "tariffs": [
+                    {
+                        "py/id": 1
+                    }
+                ],
+                "name": "client_1"
+            }
+        ],
+        "observers": []
+    },
+    {
+        "py/object": "patterns.creational_patterns.StandartTariff",
+        "name": "tariff_2",
+        "category": {
+            "py/object": "patterns.creational_patterns.Category",
+            "id": 1,
+            "name": "category_2",
+            "category": null,
+            "tariffs": [
+                {
+                    "py/id": 8
+                }
+            ]
+        },
+        "clients": [
+            {
+                "py/object": "patterns.creational_patterns.Client",
+                "tariffs": [
+                    {
+                        "py/id": 8
+                    }
+                ],
+                "name": "client_2"
+            }
+        ],
+        "observers": []
+    }
+]
