@@ -9,14 +9,10 @@
 {% include "includes/inc_menu.html" %}
 {% endblock %}
 {% block content %}
-<div>
-    <li>
-        <a href="/client-list/">Список клиентов</a>
-    </li>
-    <li>
-        <a href="/create-client/">Создать клиента</a>
-    </li>
-</div>
+<ul>
+    <a href="/client-list/">Список клиентов</a><br>
+    <a href="/create-client/">Создать клиента</a><br>
+</ul>
 <h2>Добавление клиента в тариф</h2>
 <form method="post">
     <div class="list_box">
