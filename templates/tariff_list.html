@@ -9,9 +9,9 @@
 {% include "includes/inc_menu.html" %}
 {% endblock %}
 {% block content %}
-<div>
+<ul>
     <a href="/price/">назад</a>
-</div>
+</ul>
 
 <br>
 <br>
@@ -21,9 +21,9 @@
     <br>
     <h2>Список тарифов для категории "{{name}}"</h2>
     {% for item in objects_list %}
-    <li>
-        {{item.name}} <span><a href="/copy-tariff/?name={{item.name}}">скопировать</a></span>
-    </li>
+    <ul>
+        {{item.name}} <span><a href="/copy-tariff/?name={{item.name}}">скопировать</a></span><br>
+    </ul>
     {% endfor %}
 </div>
 {% endblock %}
